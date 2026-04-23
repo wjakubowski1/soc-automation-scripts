@@ -1,0 +1,6 @@
+Apr 23 10:15:01 soc-lab sshd[123]: Failed password for root from 192.168.1.10 port 22
+Apr 23 10:17:02 soc-lab sshd[124]: Accepted password for wjakubowski from 192.168.1.50 port 22
+Apr 23 10:20:05 soc-lab sshd[125]: Failed password for admin from 10.0.0.5 port 22
+Apr 23 10:20:08 soc-lab sshd[125]: Failed password for admin from 10.0.0.5 port 22
+Apr 23 10:22:11 soc-lab sshd[126]: Failed password for root from 192.168.1.10 port 22
+Apr 23 10:25:00 soc-lab sshd[127]: Failed password for root from 192.168.1.10 port 22
