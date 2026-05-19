@@ -1,42 +1,43 @@
 import requests
-import os
+import sys
 
-# Wczytywanie klucza z ukrytego pliku .env
-# Jeśli z jakiegoś powodu nie zadziała, Python użyje "BRAK_KLUCZA"
-API_KEY = os.popen('grep VT_API_KEY .env | cut -d "=" -f2').read().strip()
+# VirusTotal API IoC Checker
+# This script checks the reputation of a given IP address using the VirusTotal API.
 
-# Przykładowy adres IP który chcemy sprawdzić
-IP_TO_CHECK = "8.8.8.8" 
+# Insert your personal API key here
+API_KEY = "YOUR_API_KEY_HERE"
+URL = "https://www.virustotal.com/api/v3/ip_addresses/"
 
-print("==========================================")
-print(f"Sprawdzanie IP: {IP_TO_CHECK} w bazie VirusTotal...")
-print("==========================================")
+# Check if an IP address was provided as an argument
+if len(sys.argv) != 2:
+    print("Error! Usage: python3 vt_checker.py <IP_ADDRESS>")
+    sys.exit()
 
-# Przygotowujemy zapytanie do serwera
-url = f"https://www.virustotal.com/api/v3/ip_addresses/{IP_TO_CHECK}"
+target_ip = sys.argv[1]
 headers = {
     "accept": "application/json",
     "x-apikey": API_KEY
 }
 
-# Zapytanie
-response = requests.get(url, headers=headers)
+print("-" * 50)
+print(f"[*] Querying VirusTotal API for IP: {target_ip}")
+print("-" * 50)
 
-# Jeśli serwer odpowiedział poprawnie
-if response.status_code == 200:
-    # Odkodowujemy odpowiedź
-    data = response.json()
-    stats = data['data']['attributes']['last_analysis_stats']
+try:
+    response = requests.get(URL + target_ip, headers=headers)
     
-    malicious = stats['malicious'] # Ilość antywirusów, które uznały to za wirusa
-    harmless = stats['harmless']   # Ilość antywirusów, które uznały to za bezpieczne
-    
-    print(f"Wynik skanowania: {malicious} silników uznało ten adres za złośliwy.")
-    print(f"Bezpieczne według: {harmless} silników.")
-    
-    if malicious > 0:
-        print("UWAGA! Ten adres IP jest potencjalnie niebezpieczny!")
+    if response.status_code == 200:
+        data = response.json()
+        stats = data['data']['attributes']['last_analysis_stats']
+        
+        print("[+] Scan Results:")
+        print(f"    - Malicious:  {stats['malicious']}")
+        print(f"    - Suspicious: {stats['suspicious']}")
+        print(f"    - Undetected: {stats['undetected']}")
     else:
-        print("Adres wygląda na bezpieczny.")
-else:
-    print(f"Błąd połączenia! Kod statusu: {response.status_code}")
+        print(f"[-] API Request Error. Status code: {response.status_code}")
+
+except Exception as e:
+    print(f"[-] An error occurred: {e}")
+
+print("-" * 50)
