@@ -12,6 +12,5 @@ Welcome to my repository! This is a collection of scripts and tools I create and
 
 * Bash (grep, awk, sort, uniq)
 * Python 3 (requests, venv, API handling)
-* PowerShell (Get-WinEvent, NetFirewallRule)
 * Git / GitHub
 * Linux Ubuntu & Windows Server 2025
