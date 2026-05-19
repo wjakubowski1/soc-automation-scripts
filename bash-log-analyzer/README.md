@@ -8,5 +8,5 @@ The script searches Linux system logs (`/var/log/auth.log` or test files) for fa
 
 ## How to run it?
 
-1. Grant execution permissions: `chmod +x analizator.sh`
-2. Run the script: `./analizator.sh`
+1. Grant execution permissions: `chmod +x analyzer.sh`
+2. Run the script: `./analyzer.sh`
