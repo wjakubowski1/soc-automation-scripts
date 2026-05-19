@@ -5,8 +5,8 @@ Welcome to my repository! This is a collection of scripts and tools I create and
 ## Project Structure:
 
 * `/bash-log-analyzer` - A Linux (Bash) script that automatically parses system logs (`auth.log`) and extracts the IP addresses of attackers using Brute Force methods over the SSH protocol.
+* `/python-port-scanner` - A lightweight, custom-built TCP port scanner developed in Python for network reconnaissance and identifying open services.
 * `/python-vt-checker` - A Python script integrating with the VirusTotal API. It checks selected IP addresses for their reputation and flags potential threats.
-* `/ActiveDirectory-Auto-Defender` - A custom SOAR PowerShell script that monitors Windows Server Event Logs for failed logons (Event ID `4625`) and dynamically deploys Windows Firewall rules to block malicious IPs.
 
 ## Technologies & Tools:
 
