@@ -1,11 +1,12 @@
 # SSH Log Analyzer
 
-Prosty skrypt napisany w Bashu, stworzony w ramach nauki automatyzacji zadań w dziale SOC (Blue Team). 
+A simple script written in Bash, created as part of learning task automation in a SOC environment (Blue Team).
 
-## Co robi ten skrypt?
-Skrypt przeszukuje logi systemowe Linuxa (`/var/log/auth.log` lub pliki testowe) pod kątem nieudanych prób logowania po protokole SSH. 
-Wykorzystuje potoki (pipes) oraz narzędzia systemowe takie jak `grep`, `awk`, `sort` i `uniq`, aby wyciągnąć i zliczyć adresy IP potencjalnych atakujących (Brute Force).
+## What does this script do?
 
-## Jak uruchomić?
-1. Nadaj uprawnienia do wykonywania: `chmod +x analizator.sh`
-2. Uruchom skrypt: `./analizator.sh`
+The script searches Linux system logs (`/var/log/auth.log` or test files) for failed SSH login attempts. It uses pipes and system tools such as `grep`, `awk`, `sort`, and `uniq` to extract and count the IP addresses of potential attackers (Brute Force).
+
+## How to run it?
+
+1. Grant execution permissions: `chmod +x analizator.sh`
+2. Run the script: `./analizator.sh`
