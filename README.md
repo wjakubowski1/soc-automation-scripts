@@ -1,6 +1,6 @@
 # SOC Automation & Security Scripts
 
-Welcome to my repository! This is a collection of scripts and tools I create and maintain while learning the fundamentals of task automation for SOC (Security Operations Center) and Blue Team operations.
+This is a collection of scripts and tools I create and maintain while learning the fundamentals of task automation.
 
 ## Project Structure:
 
